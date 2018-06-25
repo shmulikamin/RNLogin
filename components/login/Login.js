@@ -5,8 +5,8 @@ import {
   View
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { GoogleSignin, GoogleSigninButton } from 'react-native-google-signin';
-const { FBLogin, FBLoginManager } = require('react-native-facebook-login');
+import { GoogleSignin } from 'react-native-google-signin';
+const { FBLoginManager } = require('react-native-facebook-login');
 
 import Styles from './Styles';
 import LoginButton from './LoginButton';
