@@ -10,6 +10,7 @@ const { FBLogin, FBLoginManager } = require('react-native-facebook-login');
 
 import Styles from './Styles';
 import LoginButton from './LoginButton';
+import { Facebook } from '../../services';
 
 export default class Login extends Component{
   constructor(props) {
@@ -28,7 +29,7 @@ export default class Login extends Component{
          this.setState({ user: undefined });
        })
        .catch((err) => {
-         console.error('WRONG SIGNOUT', err);
+         console.log('WRONG SIGNOUT', err);
        });
        return;
     }
@@ -39,7 +40,7 @@ export default class Login extends Component{
      });
    })
    .catch((err) => {
-     console.error('WRONG SIGNIN', err);
+     console.log('WRONG SIGNIN', err);
    })
    .done();
  }
@@ -53,15 +54,14 @@ export default class Login extends Component{
            user: undefined,
           });
        } else {
-         console.error(error, data);
+         console.log(error, data);
        }
      });
     return;
     }
    FBLoginManager.loginWithPermissions(["email","user_friends"], (error, data) => {
      if (!error) {
-       const api = `https://graph.facebook.com/v2.8/${data.credentials.userId}?fields=name,email&access_token=${data.credentials.token}`;
-       fetch(api)
+       Facebook.getUserName(data.credentials.userId, data.credentials.token )
        .then((response) => response.json())
        .then( (responseData) => {
          _this.setState({
@@ -70,7 +70,7 @@ export default class Login extends Component{
       })
      .done();
      } else {
-       console.error("Error: ", error);
+       console.log("Error: ", error);
      }
    })
  }
