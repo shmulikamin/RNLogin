@@ -1,5 +1,5 @@
 # RNLogin
-Clone the repository and run the following commands under your project root:
+Clone the repository and run the following commands under the project root:
 
 ```shell
 npm install
