@@ -17,6 +17,7 @@ export default class Login extends Component{
     super(props);
     this.state = {
      user: undefined,
+     userUriPhoto: undefined,
      connectedWith: undefined,
    };
     this.loginWithGoogle = this.loginWithGoogle.bind(this);
@@ -75,7 +76,7 @@ export default class Login extends Component{
        .then( (responseData) => {
          _this.setState({
           user: responseData.name,
-          userUriPhoto: 'https://graph.facebook.com/' + data.credentials.userId + '/picture?type=large',
+          userUriPhoto: `https://graph.facebook.com/${data.credentials.userId}/picture?type=large`,
           connectedWith: "facebook",
         });
       })
