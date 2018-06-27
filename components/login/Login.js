@@ -89,7 +89,7 @@ export default class Login extends Component{
 
   render() {
     const { user, userUriPhoto, connectedWith } = this.state;
-      if (connectedWith) {
+      if (user) {
         return(
           <View style={Styles.container}>
             { SignOut(user, userUriPhoto, connectedWith, this.logout) }
