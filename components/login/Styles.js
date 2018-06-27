@@ -34,5 +34,12 @@ const Styles = StyleSheet.create({
     margin: 20,
     marginBottom: 30,
   },
+  button: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    margin: 20,
+    marginBottom: 30,
+    justifyContent: 'center',
+  },
 });
 export default Styles;
